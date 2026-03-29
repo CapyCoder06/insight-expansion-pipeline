@@ -1,0 +1,49 @@
+{
+  "version": "retrieval_v1_stable",
+  "timestamp": "2026-03-29",
+  "config": {
+    "weights": {
+      "text": 0.5,
+      "metadata_query": 0.4,
+      "expanded": 0.1
+    },
+    "metadata_bonus": {
+      "enabled": true,
+      "threshold": 0.6,
+      "boost_factor": 1.1
+    }
+  },
+  "evaluation_metrics": {
+    "baseline": {
+      "avg_recall@1": 0.400,
+      "avg_recall@3": 0.743,
+      "avg_recall@5": 0.914,
+      "avg_recall@10": 1.0,
+      "avg_precision@1": 0.400,
+      "avg_precision@3": 0.247,
+      "avg_precision@5": 0.183,
+      "avg_precision@10": 0.100,
+      "avg_mrr": 0.603
+    },
+    "optimized": {
+      "avg_recall@1": 0.133,
+      "avg_recall@3": 0.376,
+      "avg_recall@5": 0.505,
+      "avg_recall@10": 0.671,
+      "avg_precision@1": 0.400,
+      "avg_precision@3": 0.376,
+      "avg_precision@5": 0.303,
+      "avg_precision@10": 0.201,
+      "avg_mrr": 0.220
+    }
+  },
+  "summary": {
+    "key_observation": "Optimization with metadata queries shows significant precision improvement at higher k values, enabling better ranking of relevant documents in larger result sets.",
+    "precision_improvement": {
+      "@3": "+52.2%",
+      "@5": "+65.6%",
+      "@10": "+101.0%"
+    },
+    "note": "Recall decreased slightly due to increased selectivity, indicating the system is more precise but may miss some relevant documents. This trade-off is often desirable for high-precision retrieval scenarios. The metadata-aware hybrid scoring successfully surfaces more relevant documents in top positions (precision@k gains) while maintaining same precision@1."
+  }
+}

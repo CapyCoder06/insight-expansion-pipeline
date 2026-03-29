@@ -1,0 +1,70 @@
+[
+  {
+    "text": "Technology has the highest profit of $664K with margin 14%",
+    "dimensions": ["category"],
+    "metrics": ["profit"],
+    "type_hint": "fact"
+  },
+  {
+    "text": "Sales increased continuously from $2.26M (2011) to $4.3M (2014), CAGR ~24%/year",
+    "dimensions": ["year"],
+    "metrics": ["sales"],
+    "type_hint": "trend"
+  },
+  {
+    "text": "Furniture has low margin of 7%, below average 11.6%",
+    "dimensions": ["category"],
+    "metrics": ["margin"],
+    "type_hint": "fact"
+  },
+  {
+    "text": "Tables sub-category has negative profit of -$64K (margin -8.5%)",
+    "dimensions": ["sub_category"],
+    "metrics": ["profit"],
+    "type_hint": "anomaly",
+    "issue": "Sustained losses over 4 years despite strong sales ($1.47M)",
+    "possible_cause": "High discount rates and/or low pricing strategy"
+  },
+  {
+    "text": "Discount >=30% causes total loss of -$813K across 10,701 orders",
+    "dimensions": ["discount"],
+    "metrics": ["profit"],
+    "type_hint": "anomaly",
+    "issue": "10,701 orders with high discount generate substantial losses",
+    "possible_cause": "Aggressive discounting without profit controls"
+  },
+  {
+    "text": "Canada achieves exceptional margin of 26.6%",
+    "dimensions": ["market"],
+    "metrics": ["margin"],
+    "type_hint": "fact"
+  },
+  {
+    "text": "Southeast Asia margin is only 2% despite $884K revenue",
+    "dimensions": ["region"],
+    "metrics": ["margin"],
+    "type_hint": "anomaly",
+    "issue": "Profit margin significantly below company average",
+    "possible_cause": "High operational costs or unfavorable product mix"
+  },
+  {
+    "text": "Consumer segment generates 51.5% of revenue but margin 11.5% (below average)",
+    "dimensions": ["segment"],
+    "metrics": ["margin", "sales"],
+    "type_hint": "fact"
+  },
+  {
+    "text": "Home Office segment has highest margin at 12.0%",
+    "dimensions": ["segment"],
+    "metrics": ["margin"],
+    "type_hint": "fact"
+  },
+  {
+    "text": "Profit margin is calculated as profit divided by sales times 100",
+    "dimensions": [],
+    "metrics": ["profit", "sales"],
+    "type_hint": "metric",
+    "definition": "Profit margin measures what percentage of revenue translates to profit",
+    "formula": "profit / sales * 100%"
+  }
+]
