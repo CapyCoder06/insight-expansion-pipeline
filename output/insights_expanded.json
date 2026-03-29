@@ -1,0 +1,964 @@
+{
+  "insights": [
+    {
+      "text": "1 out of 13 regions have margin below 3.0%.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "low_margin_count"
+      ],
+      "type_hint": "anomaly"
+    },
+    {
+      "text": "Southeast Asia has critically low margin: 2.0% with $884,438 revenue",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin",
+        "revenue"
+      ],
+      "type_hint": "anomaly",
+      "issue": "Margin below 3%",
+      "possible_cause": "High costs or low pricing"
+    },
+    {
+      "text": "1 out of 3 categorys have profit below the average of $489,678.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_below_avg_count"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "2 out of 3 categorys have revenue below the average of $4,214,302.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_below_avg_count"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "7 out of 13 regions have margin below the average of 12.9%.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin_below_avg_count"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "7 out of 13 regions have profit below the average of $113,003.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit_below_avg_count"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "9 out of 13 regions have revenue below the average of $972,531.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_below_avg_count"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Africa margin is 11.3%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Africa profit is $88,872",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Africa revenue is $783,776",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Africa revenue rank is 8",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Among all categorys, Technology has the highest profit ($663,779), while Furniture has the lowest ($286,782), a 2.3x difference.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_comparison"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Among all categorys, Technology has the highest revenue ($4,744,691), while Office Supplies has the lowest ($3,787,330), a 1.3x difference.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_comparison"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Among all regions, Canada has the highest margin (26.6%), while Southeast Asia has the lowest (2.0%), a 13.2x difference.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin_comparison"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Among all regions, Central has the highest profit ($311,404), while Canada has the lowest ($17,817), a 17.5x difference.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit_comparison"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Among all regions, Central has the highest revenue ($2,822,399), while Canada has the lowest ($66,932), a 42.2x difference.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_comparison"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Average margin across all regions is 12.9%.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin_average"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Average profit across all categorys is $489,678.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_average"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Average profit across all regions is $113,003.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit_average"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Average revenue across all categorys is $4,214,302.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_average"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Average revenue across all regions is $972,531.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_average"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Canada margin is 26.6%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Canada profit is $17,817",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Canada revenue is $66,932",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Canada revenue rank is 13",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Caribbean margin is 10.7%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Caribbean profit is $34,571",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Caribbean revenue is $324,281",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Caribbean revenue rank is 12",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central Asia margin is 17.6%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central Asia profit is $132,480",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central Asia revenue is $752,839",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central margin is 11.0%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central profit is $311,404",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central revenue is $2,822,399",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Central revenue rank is 1",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "EMEA margin is 5.4%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "EMEA profit is $43,898",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "EMEA revenue is $806,184",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "EMEA revenue rank is 7",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "East margin is 13.5%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "East profit is $91,523",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "East revenue is $678,834",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "East revenue rank is 11",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Furniture margin is 7.0%",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Furniture profit is $286,782",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Furniture revenue is $4,110,884",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Furniture revenue is 1.1x higher than Office Supplies ($4,110,884 vs $3,787,330).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Furniture revenue rank is 2",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Gap between highest and lowest margin across regions is 24.6 percentage points.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin_gap"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Gap between highest and lowest profit across categorys is $376,996.",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_gap"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Gap between highest and lowest revenue across regions is $2,755,467.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_gap"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North Asia margin is 19.5%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North Asia profit is $165,578",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North Asia revenue is $848,349",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North margin is 15.6%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North profit is $194,598",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North revenue is $1,248,192",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "North revenue rank is 3",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Oceania margin is 11.1%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Oceania profit is $121,667",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Oceania revenue is $1,100,207",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Oceania revenue rank is 4",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies margin is 13.7%",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies margin is 2.0x higher than Furniture (13.7% vs 7.0%).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies profit is $518,474",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies profit is 1.8x higher than Furniture ($518,474 vs $286,782).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies revenue is $3,787,330",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Office Supplies revenue rank is 3",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "South margin is 8.8%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "South profit is $140,356",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "South revenue is $1,600,960",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Southeast Asia profit is $17,852",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Southeast Asia revenue is $884,438",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Southeast Asia revenue rank is 5",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology margin is 1.0x higher than Office Supplies (14.0% vs 13.7%).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology margin is 14.0%",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology margin is 2.0x higher than Furniture (14.0% vs 7.0%).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology profit is $663,779",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology profit is 1.3x higher than Office Supplies ($663,779 vs $518,474).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology profit is 2.3x higher than Furniture ($663,779 vs $286,782).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology revenue is $4,744,691",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology revenue is 1.2x higher than Furniture ($4,744,691 vs $4,110,884).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology revenue is 1.3x higher than Office Supplies ($4,744,691 vs $3,787,330).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_ratio"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Technology revenue rank is 1",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_rank"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Top 3 regions by revenue account for 44.9% of total revenue.",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_top3_share"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "West margin is 14.9%",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "West profit is $108,418",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "West revenue is $725,514",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue"
+      ],
+      "type_hint": "fact"
+    },
+    {
+      "text": "Canada leads all regions in margin, 2.1x the average (12.9%).",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "margin_leader_ratio"
+      ],
+      "type_hint": "trend"
+    },
+    {
+      "text": "Central leads all regions in profit, 2.8x the average ($113,003).",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "profit_leader_ratio"
+      ],
+      "type_hint": "trend"
+    },
+    {
+      "text": "Central leads all regions in revenue, 2.9x the average ($972,531).",
+      "dimensions": [
+        "region"
+      ],
+      "metrics": [
+        "revenue_leader_ratio"
+      ],
+      "type_hint": "trend"
+    },
+    {
+      "text": "Technology leads all categorys in margin, 1.2x the average (11.6%).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "margin_leader_ratio"
+      ],
+      "type_hint": "trend"
+    },
+    {
+      "text": "Technology leads all categorys in profit, 1.4x the average ($489,678).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "profit_leader_ratio"
+      ],
+      "type_hint": "trend"
+    },
+    {
+      "text": "Technology leads all categorys in revenue, 1.1x the average ($4,214,302).",
+      "dimensions": [
+        "category"
+      ],
+      "metrics": [
+        "revenue_leader_ratio"
+      ],
+      "type_hint": "trend"
+    }
+  ],
+  "metadata": {
+    "total_generated": 95,
+    "source": "data\\eda_structured.csv",
+    "seed_count": 10,
+    "target_count": 100,
+    "dedup_threshold": 0.85
+  }
+}

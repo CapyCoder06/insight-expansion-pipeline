@@ -12,6 +12,12 @@ import sys
 import csv
 from statistics import mean
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Add src directory to Python path for imports
+sys.path.insert(0, str(Path(__file__).parent / 'src'))
 
 try:
     from pipeline.config import load_config
@@ -21,11 +27,14 @@ except ImportError:
 
 # Import Deduplicator for signature-based deduplication
 try:
-    sys.path.insert(0, str(Path(__file__).parent / 'src'))
     from insight_expansion.deduplicator import Deduplicator
+    from insight_expansion.insight_generator import InsightGenerator
+    from insight_expansion.data_query import DataQueryEngine
     DEDUPLICATOR_AVAILABLE = True
 except ImportError:
     DEDUPLICATOR_AVAILABLE = False
+    InsightGenerator = None
+    DataQueryEngine = None
 
 
 def format_currency(value):
@@ -34,12 +43,16 @@ def format_currency(value):
 def format_percent(value):
     return f"{value:.1f}%"
 
-def generate_insights_from_data(csv_path: str, target_count: int = 100):
+def generate_insights_from_data(csv_path: str, target_count: int = 100, config=None, seeds=None):
     """Generate insights strictly following:
     - type_hint in {'fact','anomaly','trend','metric','question'} (we use only fact and anomaly)
     - dimensions list contains exactly ONE dimension (category or region)
     - All values grounded in dataset.
     """
+    if config is None:
+        config = {}
+    if seeds is None:
+        seeds = []
     # Load CSV data
     data = []
     with open(csv_path, 'r', encoding='utf-8') as f:
@@ -111,39 +124,13 @@ def generate_insights_from_data(csv_path: str, target_count: int = 100):
             avg_val = sum(agg_dict[e][metric] for e in entities) / n_entities if n_entities else 0
             averages[metric] = avg_val
 
-        # For each entity and metric, create base fact and possibly qualifier fact
+        # For each entity and metric, create only base fact: "X metric is value"
         for metric in metrics:
             for ent in entities:
                 val = agg_dict[ent][metric]
                 val_str = format_percent(val) if metric == 'margin' else format_currency(val)
-                rank = rankings[metric].index(ent) + 1
-
-                # Base fact: "X metric is value"
                 base_text = f"{ent} {metric} is {val_str}"
                 add_insight(base_text, [dim_name], [metric], 'fact')
-
-                # Qualifier fact: with highest/lowest/above avg/below avg
-                qualifier = None
-                if rank == 1:
-                    qualifier = "highest"
-                elif rank == n_entities:
-                    qualifier = "lowest"
-                else:
-                    avg = averages[metric]
-                    if val > avg * 1.1:
-                        qualifier = "above average"
-                    elif val < avg * 0.9:
-                        qualifier = "below average"
-                if qualifier:
-                    qual_text = f"{ent} has {qualifier} {metric} of {val_str}"
-                    add_insight(qual_text, [dim_name], [metric], 'fact')
-
-        # Add moderate margin facts (10-15%) for all entities
-        for ent in entities:
-            marg = agg_dict[ent]['margin']
-            if 10 <= marg < 15:
-                m_str = format_percent(marg)
-                add_insight(f"{ent} has moderate margin: {m_str}", [dim_name], ['margin'], 'fact')
 
     # Generate for categories
     generate_entity_insights(cat_agg, 'category')
@@ -176,26 +163,47 @@ def generate_insights_from_data(csv_path: str, target_count: int = 100):
                 possible_cause='High costs or low pricing'
             )
 
-    # Add combined profit+margin facts (still single dimension)
-    for ent, agg in cat_agg.items():
-        p_str = format_currency(agg['profit'])
-        m_str = format_percent(agg['margin'])
-        add_insight(f"{ent}: profit {p_str}, margin {m_str}", ['category'], ['profit','margin'], 'fact')
-    for ent, agg in region_agg.items():
-        p_str = format_currency(agg['profit'])
-        m_str = format_percent(agg['margin'])
-        add_insight(f"{ent}: profit {p_str}, margin {m_str}", ['region'], ['profit','margin'], 'fact')
+    # NOTE: Disabled combined profit+margin insights to avoid linking metrics and causing signature loss
+    # for ent, agg in cat_agg.items():
+    #     p_str = format_currency(agg['profit'])
+    #     m_str = format_percent(agg['margin'])
+    #     add_insight(f"{ent}: profit {p_str}, margin {m_str}", ['category'], ['profit','margin'], 'fact')
+    # for ent, agg in region_agg.items():
+    #     p_str = format_currency(agg['profit'])
+    #     m_str = format_percent(agg['margin'])
+    #     add_insight(f"{ent}: profit {p_str}, margin {m_str}", ['region'], ['profit','margin'], 'fact')
 
-    # Add high revenue facts (limited number) to help reach target
-    # These are not essential but add variety
-    for cat in cat_agg:
-        if cat_agg[cat]['revenue'] > 300000:
-            rev_str = format_currency(cat_agg[cat]['revenue'])
-            add_insight(f"{cat} has high revenue: {rev_str}", ['category'], ['revenue'], 'fact')
-    for reg in region_agg:
-        if region_agg[reg]['revenue'] > 200000:
-            rev_str = format_currency(region_agg[reg]['revenue'])
-            add_insight(f"{reg} has high revenue: {rev_str}", ['region'], ['revenue'], 'fact')
+    # NOTE: Disabled high revenue facts to avoid cross-entity text similarity and keep dedup clean
+    # They are redundant with base revenue facts anyway.
+
+    # Generate rank insights using InsightGenerator (adds distinct signatures)
+    if DEDUPLICATOR_AVAILABLE and InsightGenerator:
+        try:
+            rank_insights = InsightGenerator.generate_rank_insights(DataQueryEngine())
+            for rins in rank_insights:
+                insights.append(rins)
+        except Exception as e:
+            print(f"Warning: Failed to generate rank insights: {e}", file=sys.stderr)
+
+    # Generate additional pattern-based insights for diversity
+    if DEDUPLICATOR_AVAILABLE and InsightGenerator and DataQueryEngine:
+        try:
+            comparison_insights = InsightGenerator.generate_comparison_insights(DataQueryEngine())
+            insights.extend(comparison_insights)
+            ratio_insights = InsightGenerator.generate_ratio_insights(DataQueryEngine())
+            insights.extend(ratio_insights)
+            aggregate_insights = InsightGenerator.generate_aggregate_insights(DataQueryEngine())
+            insights.extend(aggregate_insights)
+            gap_insights = InsightGenerator.generate_gap_insights(DataQueryEngine())
+            insights.extend(gap_insights)
+            threshold_insights = InsightGenerator.generate_threshold_insights(DataQueryEngine())
+            insights.extend(threshold_insights)
+            anomaly_var_insights = InsightGenerator.generate_anomaly_variations_insights(DataQueryEngine())
+            insights.extend(anomaly_var_insights)
+            trend_insights = InsightGenerator.generate_trend_insights(DataQueryEngine())
+            insights.extend(trend_insights)
+        except Exception as e:
+            print(f"Warning: Failed to generate pattern-based insights: {e}", file=sys.stderr)
 
     # Apply intelligent deduplication using Deduplicator (signature + text similarity)
     if DEDUPLICATOR_AVAILABLE:
@@ -300,7 +308,7 @@ def main():
         print(f"Target count: {target}")
 
         # Generate insights
-        insights = generate_insights_from_data(csv_path=str(csv_path), target_count=target)
+        insights = generate_insights_from_data(csv_path=str(csv_path), target_count=target, config=cfg, seeds=seeds)
 
         # Prepare output with metadata
         output = {

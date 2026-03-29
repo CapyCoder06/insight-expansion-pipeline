@@ -77,3 +77,8 @@ retrieval_versions:
 # If not set, system uses default "retrieval" section above
 # retrieval:
 #   use_version: retrieval_v1_stable
+
+expansion:
+  target_count: 100
+  dedup_threshold: 0.85
+  output_file: output/insights_expanded.json
