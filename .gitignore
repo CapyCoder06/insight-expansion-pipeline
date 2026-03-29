@@ -37,6 +37,9 @@ hypothesis_eda.ipynb
 # Claude Code
 .claude/
 
+# Git worktrees
+.worktrees/
+
 # OS
 .DS_Store
 Thumbs.db
